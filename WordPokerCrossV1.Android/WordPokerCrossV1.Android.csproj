@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0-android36.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ApplicationId>com.CompanyName.WordPokerCrossV1</ApplicationId>
+        <ApplicationVersion>1</ApplicationVersion>
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <AndroidPackageFormat>apk</AndroidPackageFormat>
+        <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+            <AndroidSdkDirectory>C:\Program Files (x86)\Android\android-sdk</AndroidSdkDirectory>
+                <JavaSdkDirectory>C:\Program Files\Android\openjdk\jdk-21.0.8</JavaSdkDirectory>
+                <Platforms>AnyCPU;ARM64</Platforms>
+    </PropertyGroup>
+
+	
+    <ItemGroup>
+        <AndroidResource Include="Icon.png">
+            <Link>Resources\drawable\Icon.png</Link>
+        </AndroidResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia.Android" />
+        <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\WordPokerCrossV1\WordPokerCrossV1.csproj" />
+    </ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\**" />
+	</ItemGroup>
+
+</Project>

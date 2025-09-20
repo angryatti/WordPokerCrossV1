@@ -1,0 +1,8 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:WordPokerCrossV1.Views"  x:Class="WordPokerCrossV1.Views.MainWindow"
+        Title="WordPokerCrossV1">
+     
+    <views:MainView/>   
+    
+</Window>
