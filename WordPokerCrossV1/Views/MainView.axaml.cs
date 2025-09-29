@@ -173,7 +173,19 @@ public partial class MainView : UserControl
             }
         }
 
+
+
+
         _life--;
+
+        if (_life < 0)
+        {
+
+            _life = 0;
+
+
+        }
+
 
         if (_life == 10)
         {
@@ -206,46 +218,53 @@ public partial class MainView : UserControl
     {
         string currentGuessedWord = $"{LbWord0.Content}{LbWord1.Content}{LbWord2.Content}{LbWord3.Content}";
 
-        if (_str4 != null && _index >= 0 && _index < _str4.Length &&
-            plainText == _str4[_index].ToUpper())
+        bool isValidIndex = _str4 != null && _index >= 0 && _index < _str4.Length;
 
+        if (isValidIndex &&
+            (plainText == _str4[_index].ToUpper() || currentGuessedWord == _str4[_index].ToUpper()))
         {
-            switch (SwitchLangBt.Content)
+            string language = SwitchLangBt.Content?.ToString() ?? "en";
+            LbWin.Content = language switch
             {
-                case "en": LbWin.Content = "You win!"; break;
-                case "ru": LbWin.Content = "ты выиграл!"; break;
-                case "hu": LbWin.Content = "Nyertél!"; break;
-            }
-        }
-        else if (_str4 != null && _index >= 0 && _index < _str4.Length && currentGuessedWord == _str4[_index].ToUpper())
-        {
-            switch (SwitchLangBt.Content)
-            {
-                case "en": LbWin.Content = "You win!"; break;
-                case "ru": LbWin.Content = "ты выиграл!"; break;
-                case "hu": LbWin.Content = "Nyertél!"; break;
-            }
+                "ru" => "ты выиграл!",
+                "hu" => "Nyertél!",
+                _ => "You win!"
+            };
         }
 
-        else if (_life <= 0)
+
+        if (_life == 0)
         {
             InitPic(3);
 
-            LbWord0.Content = _str4?[_index][0];
-            LbWord1.Content = _str4?[_index][1];
-            LbWord2.Content = _str4?[_index][2];
-            LbWord3.Content = _str4?[_index][3];
-            LbWord0.FontStyle = LbWord1.FontStyle = LbWord2.FontStyle = LbWord3.FontStyle = FontStyle.Italic;
+        
+            string? word = _str4 != null && _index >= 0 && _index < _str4.Length
+                ? _str4[_index] : null;
 
-
-
-            switch (SwitchLangBt.Content)
+            if (word != null)
             {
-                case "en": LbWin.Content = $"You lose! Word was: {_str4?[_index].ToUpper()}"; break;
-                case "ru": LbWin.Content = $"ты не выиграл! Слово было: {_str4?[_index].ToUpper()}"; break;
-                case "hu": LbWin.Content = $"Vesztettél! A szó: {_str4?[_index].ToUpper()}"; break;
+            
+                Label[] wordLabels = new[] { LbWord0, LbWord1, LbWord2, LbWord3 };
+
+                for (int i = 0; i < wordLabels.Length; i++)
+                {
+                    wordLabels[i].Content = word.Length > i ? word[i] : null;
+                    wordLabels[i].FontStyle = FontStyle.Italic;
+                }
+
+                string language = SwitchLangBt.Content?.ToString() ?? "en";
+                string loseMessage = language switch
+                {
+                    "ru" => "ты не выиграл!",
+                    "hu" => "Vesztettél! ",
+                    _ => "You lose!"
+                };
+
+                LbWin.Content = $"{loseMessage}";
             }
+
         }
+
     }
 
     private void SwitchLangBT_OnClick(object? sender, RoutedEventArgs e)
