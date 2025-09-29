@@ -5,13 +5,20 @@
              xmlns:vm="clr-namespace:WordPokerCrossV1.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="WordPokerCrossV1.Views.MainView"
-             x:DataType="vm:MainViewModel">
-    
+             x:DataType="vm:MainViewModel" Background="WhiteSmoke">
+	
+		
+	
     <Design.DataContext>
         <vm:MainViewModel />
+		
     </Design.DataContext>
-    
-    <Grid x:Name="MainGrid">
+
+
+
+	<Grid x:Name="MainGrid" >
+	
+		
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="Auto" />
@@ -29,20 +36,38 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-        <Label Name="Life1" Grid.Column="0" Grid.Row="0" Content="15"/>
-        <Label Name="LbWord0" Grid.Column="1" Grid.Row="0" Content="_" FontSize="24"/>
-        <Label Name="LbWord1" Grid.Column="2" Grid.Row="0" Content="_" FontSize="24"/>
-        <Label Name="LbWord2" Grid.Column="3" Grid.Row="0" Content="_" FontSize="24"/>
-        <Label Name="LbWord3" Grid.Column="4" Grid.Row="0" Content="_" FontSize="24"/>
-        <TextBox Name="TbFullWord" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" FontSize="24" Text="" KeyUp="TbFullWord_OnKeyUp"/>
-        <Label Name="LbWin" Grid.Column="0" Grid.Row="4" Content="" Grid.ColumnSpan="2" Grid.RowSpan="2" FontSize="24"/>
+
+		<Grid.Styles>
+			<Style Selector="Button">
+				<Setter Property="Background" Value="Purple" />
+				<Setter Property="Foreground" Value="White" />
+			</Style>
+			<Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+				<Setter Property="Foreground" Value="Orange" />
+				<Setter Property="Background" Value="LightBlue" />
+				<Setter Property="Opacity" Value="1" />
+			</Style>
+			
+		
+		</Grid.Styles>
+
+
+
+		<Label Name="Life1" Foreground="Black" Grid.Column="0" Grid.Row="0" Content="15"/>
+        <Label Name="LbWord0"  Foreground="Black" Grid.Column="1" Grid.Row="0" Content="_" FontSize="24"/>
+        <Label Name="LbWord1"  Foreground="Black" Grid.Column="2" Grid.Row="0" Content="_" FontSize="24"/>
+        <Label Name="LbWord2"  Foreground="Black" Grid.Column="3" Grid.Row="0" Content="_" FontSize="24"/>
+        <Label Name="LbWord3"  Foreground="Black" Grid.Column="4" Grid.Row="0" Content="_" FontSize="24"/>
+        <TextBox Name="TbFullWord"  Foreground="Green" Background="Purple" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" FontSize="24" Text="" KeyUp="TbFullWord_OnKeyUp"/>
+        <Label Name="LbWin"  Foreground="White" Grid.Column="0" Grid.Row="4" Content="" Grid.ColumnSpan="2" Grid.RowSpan="2" FontSize="24"/>
         <Image Name="Img1" Grid.Row="5" Grid.Column="3"  Grid.ColumnSpan="3" Grid.RowSpan="4"  Source="" />
         
-        <Button x:Name="StartGameBt" Content="StartGame" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Click="StartGameBT_OnClick"/>
-        <Button x:Name="GuessBt" Content="Guess" Grid.Column="0" Grid.Row="2" Click="GuessBt_OnClick"/>
-        <Button x:Name="SwitchLangBt" Content="hu" Click="SwitchLangBT_OnClick" Grid.Column="0" Grid.Row="5"/>
-        
-    </Grid>
+        <Button Name="StartGameBt"  Content="StartGame" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Click="StartGameBT_OnClick"/>
+        <Button Name="GuessBt"  Content="Guess" Grid.Column="0" Grid.Row="2" Click="GuessBt_OnClick"/>
+        <Button Name="SwitchLangBt"  Content="hu" Click="SwitchLangBT_OnClick" Grid.Column="0" Grid.Row="5"/>
+
+
+
+	</Grid>
 </UserControl>
 
