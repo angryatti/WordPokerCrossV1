@@ -59,7 +59,7 @@
         <Label Name="LbWord2"  Foreground="Black" Grid.Column="3" Grid.Row="0" Content="_" FontSize="24"/>
         <Label Name="LbWord3"  Foreground="Black" Grid.Column="4" Grid.Row="0" Content="_" FontSize="24"/>
         <TextBox Name="TbFullWord"  Foreground="Green" Background="Purple" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" FontSize="24" Text="" KeyUp="TbFullWord_OnKeyUp"/>
-        <Label Name="LbWin"  Foreground="White" Grid.Column="0" Grid.Row="4" Content="" Grid.ColumnSpan="2" Grid.RowSpan="2" FontSize="24"/>
+        <Label Name="LbWin"  Foreground="Black" Grid.Column="0" Grid.Row="4" Content="" Grid.ColumnSpan="2" Grid.RowSpan="2" FontSize="24"/>
         <Image Name="Img1" Grid.Row="5" Grid.Column="3"  Grid.ColumnSpan="3" Grid.RowSpan="4"  Source="" />
         
         <Button Name="StartGameBt"  Content="StartGame" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Click="StartGameBT_OnClick"/>

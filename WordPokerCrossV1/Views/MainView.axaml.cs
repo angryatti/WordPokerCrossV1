@@ -31,7 +31,7 @@ public partial class MainView : UserControl
     private string[]? _str4;
     private int _index;
     private int _life = 15;
-    private readonly string[] _langCodes = ["hu", "en", "ru"];
+    private readonly string[] _langCodes = ["hu", "en", "ru", "pl"];
     private int _currentLangIndex;
 
 
@@ -122,6 +122,8 @@ public partial class MainView : UserControl
             case "hu": Life1.Content = $"Élet:{_life} "; GuessBt.Content = "Tipp"; StartGameBt.Content = "Új játék"; break;
             case "en": Life1.Content = $"Life:{_life}"; GuessBt.Content = "Guess"; StartGameBt.Content = "New Game"; break;
             case "ru": Life1.Content = $"житие:{_life}"; GuessBt.Content = "Предполагать"; StartGameBt.Content = "Новая игра"; break;
+            case "pl": Life1.Content = $"życie:{_life}";GuessBt.Content = "Zgadnąć";StartGameBt.Content = "Nowa Gra"; break;
+
         }
 
         LbWord0.Content = "_";
@@ -208,6 +210,7 @@ public partial class MainView : UserControl
             case "hu": Life1.Content = $"Élet:{_life} "; break;
             case "en": Life1.Content = $"Life:{_life}"; break;
             case "ru": Life1.Content = $"житие:{_life}"; break;
+            case "pl": Life1.Content = $"życie:{_life}"; break;
         }
 
 
@@ -228,6 +231,7 @@ public partial class MainView : UserControl
             {
                 "ru" => "ты выиграл!",
                 "hu" => "Nyertél!",
+                "pl" => "Wygrywasz!",
                 _ => "You win!"
             };
         }
@@ -257,6 +261,7 @@ public partial class MainView : UserControl
                 {
                     "ru" => "ты не выиграл!",
                     "hu" => "Vesztettél! ",
+                    "pl" => "Przegrywasz!",
                     _ => "You lose!"
                 };
 
